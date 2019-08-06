@@ -22,6 +22,7 @@
     <!-- swiper CSS -->
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/styleparticle.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -58,10 +59,15 @@
   text-align: center;
 }
 
+
 h1 { font-size: 2.3rem; } */
 
 
 /* Create Line */
+
+
+
+
 #timeline ul {
   padding: 50px 0;
   background: var(--primary-color);
@@ -174,7 +180,7 @@ h1 { font-size: 2.3rem; } */
 #section-countdown {
   font-family: 'Titillium Web', cursive;
   width: 100%;
-  margin: 107px auto;
+  margin: 0px auto;
   text-align: center;
   color: white;
   background: #222;
@@ -211,7 +217,7 @@ h1 { font-size: 2.3rem; } */
 }</style>
 </head>
 
-<body style="overflow-x: hidden !important">
+<body>
     <!--::header part start::-->
     <header class="main_menu home_menu">
         <div class="container">
@@ -224,7 +230,6 @@ h1 { font-size: 2.3rem; } */
                             aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-
                         <div class="collapse navbar-collapse main-menu-item justify-content-end"
                             id="navbarSupportedContent">
                             <ul class="navbar-nav">
@@ -271,9 +276,8 @@ h1 { font-size: 2.3rem; } */
         </div>
     </header>
     <!-- Header part end-->
-
     <!-- banner part start-->
-    <section class="banner_part">
+    <!-- <section class="banner_part">
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-xl-6 col-md-6">
@@ -296,7 +300,14 @@ h1 { font-size: 2.3rem; } */
         <div class="hero-app-5 custom-animation2"><img src="img/animate_icon/icon_3.png" alt=""></div>
         <div class="hero-app-7 custom-animation3"><img src="img/animate_icon/icon_2.png" alt=""></div>
         <div class="hero-app-8 custom-animation"><img src="img/animate_icon/icon_4.png" alt=""></div>
-    </section>
+    </section>  -->
+   
+        <section id="particles-js">
+            <section id="make">
+            <div class="heading" id="heading1">Makerspace</div>
+       
+            </section>
+        </section>
     <!-- banner part start-->
   <section id="section-countdown" style="background: #162b45 !important">
             <div class="row justify-content-center">
@@ -1256,6 +1267,68 @@ h1 { font-size: 2.3rem; } */
                                     Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             
     <!-- footer part end-->
+	<script>
+            var textHolder = document.getElementById('heading1'),
+      text = textHolder.innerHTML,
+        chars = text.length,
+        newText = '',
+        i;	
+    
+    for (i = 0; i < chars; i += 1) {
+        newText += '<i>' + text.charAt(i) + '</i>';
+    }
+    
+    textHolder.innerHTML = newText;
+    
+    var letters = document.getElementsByTagName('i'),
+        flickers = [5, 7, 9, 11, 13, 15, 17],
+        randomLetter,
+        flickerNumber,
+        counter;
+    
+    function randomFromInterval(from,to) {
+        return Math.floor(Math.random()*(to-from+1)+from);
+    }
+    
+    function hasClass(element, cls) {
+        return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+    }
+    
+    function flicker() {		
+        counter += 1;
+        
+        if (counter === flickerNumber) {
+            return;
+        }
+    
+        setTimeout(function () {
+            if(hasClass(randomLetter, 'off')) {
+                randomLetter.className = '';
+            }
+            else {
+                randomLetter.className = 'off';
+            }
+    
+            flicker();
+        }, 30);
+    }
+    
+    (function loop() {
+        var rand = randomFromInterval(500,3000);
+    
+        randomLetter = randomFromInterval(0, 3);
+        randomLetter = letters[randomLetter];
+        
+        flickerNumber = randomFromInterval(0, 6);
+        flickerNumber = flickers[flickerNumber];
+    
+        setTimeout(function() {
+                counter = 0;
+                flicker();
+                loop();  
+        }, rand);
+    }());
+        </script>
     <script>
     const items = document.querySelectorAll('#timeline li');
 
@@ -1333,6 +1406,9 @@ window.addEventListener('scroll', run);</script>
     <!-- custom js -->
     <script src="js/custom.js"></script>
     <script src="js/projects.js"></script>
+    
+<script src="js/particles.js"></script> 
+<script src="js/app.js"></script> 
 
 </body>
 

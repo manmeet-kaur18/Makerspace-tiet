@@ -2516,7 +2516,7 @@ ul {
 
 /* line 16, E:/170 Kanox Agency/170_Kanox_Agency_html/sass/_menu.scss */
 .main_menu .main-menu-item ul li a {
-  color: #112e41 !important;
+  color:rgba(255,255,255,0.98) !important;
   font-size: 15px;
   padding: 9px 24px !important;
   font-family: "Roboto", sans-serif;

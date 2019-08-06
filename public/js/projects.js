@@ -33,7 +33,7 @@ $( document ).ready(function() {
             }
         }
             else {
-                alert("No projects to display yet!");
+                // alert("No projects to display yet!");
             }
         },
     });
